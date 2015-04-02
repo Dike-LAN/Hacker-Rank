@@ -1,0 +1,54 @@
+//This program calculates how many days the user has lived and how many hours they have slept for (assuming the user sleeps for an average of 8 hours daily). 
+
+import java.util.Scanner;
+public class Sleep {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Would you like to know how many days you've lived for or how long you've slept all your life? :)");
+		
+	double a; //Year of birth (e.g 1990)
+	double b; //Month of birth (e.g September = 9)
+	double c; //Day of birth (e.g 8)
+	double d; //Present year (e.g 2006)
+	double e; //Present month (e.g February = 2)
+	double f; //Present day (e.g 12)
+	// Defining the Years, Months, and Days of your birth and the present as integers for calculation.
+	Scanner input = new Scanner(System.in);
+	
+	System.out.println("Enter your birthdate"); //Retrieve user's birthdate
+	System.out.println("Year:");
+	a= input.nextDouble(); 
+	System.out.println("Month:");
+	b= input.nextDouble();
+	System.out.println("Day:");
+	c= input.nextDouble();
+	
+	System.out.println("Enter today's date"); //Retrieve present date
+	System.out.println("Year:");
+	d= input.nextDouble();
+	System.out.println("Month:");
+	e= input.nextDouble();
+	System.out.println("Day:");
+	f= input.nextDouble();
+	input.close();
+	
+	double Dyear; 
+	Dyear= (d-a)*365; //The number of days in the difference between the year you were born and the present year.
+	double Bob;
+	Bob= ((b-1)*30)+c; //The integer number of the day of the year in which you were born.
+	double Rap;
+	Rap= ((e-1)*30)+f; //The integer number of the present day of the year.
+	//No of days = Dyear - (Bob+Rap)
+
+	
+	System.out.println("You have been alive for "+(Dyear-(Bob-Rap))+" days."); //Displays the number of days the user has lived
+	System.out.println("You have slept for "+((Dyear-(Bob-Rap))*8)+" hours."); //Displays the number of hours the user has slept
+
+
+	}
+
+}
