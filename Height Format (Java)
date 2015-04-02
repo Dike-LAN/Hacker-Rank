@@ -1,0 +1,68 @@
+#Given an input integer N, the user is then prompted to input the names and heights of N number of friends, thereafter the data is sorted orderly
+
+import java.util.*;
+
+
+public class Height_Format {
+	/*
+	 * Swap Method
+	 */
+	public static void SortHeight(String[][] N, int[] O){ //Matrix and Array parameters
+		for(int f=0; f<O.length; f++){
+			for(int k=0; k<O.length; k++){
+				if (O[f]>O[k]){
+					int temp = O[f];
+					O[f] = O[k];
+					O[k] = temp;
+					String rain = N[f][1];
+					N[f][1] = N[k][1];
+					N[k][1] = rain;
+			
+				}
+			}
+		}
+		
+	}
+	public static void main(String[] args) {
+		System.out.print("How many friends do you have? ");//Prompts the user for size of the array
+		String[][] Height; //Creates the string matrix 
+		int[] NUM; // Creates an integer array for the heights of the friends
+		Scanner input = new Scanner(System.in);
+		int x = input.nextInt(); //Assigns a variable to the inputed size of the array
+		Height = new String[x][2];  //Defines height using x as the vertical component
+		NUM = new int[x]; //Defines NUM using x as its length
+
+		for(int i=0; i<x; i++){
+			Height[i][0] = (i+1)+"."; //Numbers the friends as part of the matrix
+			Scanner input1 = new Scanner(System.in);
+			System.out.println("Friend"+(i+1)+": ");//Prompts the user for name of friend
+			Height[i][1] = input1.nextLine();
+			Scanner input2 = new Scanner(System.in);
+			System.out.println("Friend"+(i+1)+"'s Height"+": ");//Prompts the user for Height of friend
+			NUM[i] = input2.nextInt(); //The inputed height becomes the element of NUM
+			}
+		
+		System.out.printf("%-5s %10s %5s", "No.", "Name", "Height" + "\n");//Prints Headings
+		System.out.printf("%-5s %10s %5s", "---", "----", "------" + "\n");//Underlines headings
+		for(int i=0; i<x; i++){
+				System.out.printf("%-5s %10s %5s", Height[i][0], Height[i][1], NUM[i] + "\n");
+				
+			}//Prints, by format, matrix
+		
+		System.out.println();
+		System.out.println();
+		
+		SortHeight(Height, NUM);//Sorts matrix by swap method
+		System.out.printf("%-5s %10s %5s", "No.", "Name", "Height" + "\n");
+		System.out.printf("%-5s %10s %5s", "---", "----", "------" + "\n");
+		for(int i=0; i<x; i++){
+				System.out.printf("%-5s %10s %5s", Height[i][0], Height[i][1], NUM[i] + "\n");
+				
+			}//Prints sorted matrix in descending order of height
+
+
+		}
+
+	}
+
+
