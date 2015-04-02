@@ -1,0 +1,53 @@
+//Given an integer input N, the task is to print a triangle composed of the string '*' of size N. This code is written in Java
+
+import java.util.Scanner;
+public class Triangle {
+	
+	/** A method that prints a space y number of times
+	 * pre: none
+	 * post: displays a space
+	 */
+	public static void space(int y){ 
+		for (int a=0; a<y; a++){
+		System.out.print(" ");
+		}
+	}
+	
+	/**A method that prints the string "*" n number of times 
+	 * pre: none
+	 * post: prints the string "*" 
+	 */
+	
+	public static void drawBar(int n){ 
+		for(int b=0; b<n; b++){
+			System.out.print("*");
+		}
+	}
+	
+	public static void addSpace(int n){ //A method that displays the 2nd line to the last line of the triangle.
+		int counter = 1; //A counter integer that determines the number of times to display the string "*".
+		int counter2 = n-1; //A counter integer that determines the number of times to display a space
+		space(counter2); //prints a space in an increasing order of 2.
+		drawBar(counter);//prints the string "*" in a decreasing order of 1
+		System.out.println(" ");
+		for(int y=1; y<n; y++){ //Loop that runs n number of times
+			counter = counter+2; //The integer counter increases by two at each loop
+			counter2 = counter2 - 1; // The integer counter decreases by 1 at each loop
+			space(counter2); //prints a space in an increasing order of 2.
+			drawBar(counter);//prints the string "*" in a decreasing order of 1
+			System.out.println(""); //Starts a new line after each loop
+		}
+	}
+	
+	/**
+	 * 
+	 * Main Method
+	 */
+	public static void main(String[] args){ 
+		System.out.println("Enter the size: "); //Prompts the user for the size of the triangle
+		Scanner input = new Scanner(System.in);
+	int n = input.nextInt(); //Defines the integer n as the size inputed by the user 
+	addSpace(n); //Runs the method that displays the rest of the triangle
+	}
+
+}
