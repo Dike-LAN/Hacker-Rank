@@ -1,11 +1,12 @@
-#Given a word w, rearrange the letters of w to construct another word s in such a way that, s is lexicographically greater than w. In case of multiple possible answers, find the lexicographically smallest one.
+"""Given a word w, rearrange the letters of w to construct another word s in such a way that, s is lexicographically greater than w. 
+In case of multiple possible answers, find the lexicographically smallest one."""
 
 import string
 t = input()
 w = [0]*t
 alpha = list(string.ascii_lowercase)
 for i in range(t):
-    w[i] = raw_input()
+    w[i] = input()
     if (any(p.isdigit() for p in w[i])):
         print()
     else:
